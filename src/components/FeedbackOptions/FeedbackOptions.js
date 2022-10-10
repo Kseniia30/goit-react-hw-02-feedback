@@ -1,8 +1,9 @@
 import { StyledBTN, StyledBtnItem } from "./FeedbackOptions.styled"
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return options.map(option => (
-            <StyledBtnItem>
+            <StyledBtnItem key={option}>
                 <StyledBTN
                     key={option}
                     type="button"
@@ -11,4 +12,9 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
             </StyledBtnItem>
             
     ))
+}
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.array,
+    onLeaveFeedback: PropTypes.func.isRequired
 }
